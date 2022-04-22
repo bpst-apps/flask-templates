@@ -60,4 +60,20 @@ def login():
 @app.route('/js-integration-example')
 def js_integration_example():
     return render_template('js-integration-example.html', title='Flask Templates')
+
+
 # ***************************************** JS INTEGRATION END *********************************************************
+# **********************************************************************************************************************
+# ***************************************** URL ROUTING START **********************************************************
+# hit this uri: http://127.0.0.1:5000/student
+@app.route('/student')
+def student():
+    return render_template('student.html')
+
+
+@app.route('/result', methods=['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("result.html", result=result)
+# ***************************************** URL ROUTING END ************************************************************
